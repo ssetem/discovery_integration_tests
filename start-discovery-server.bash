@@ -7,6 +7,8 @@ require docker
 disco_server_port=4440
 disco_server_image=docker.otenv.com/discovery-server:discovery-server-0.8.0
 
+if ! [ -d ./logs ]; then mkdir logs; fi
+
 disco_server_ip() {
 	boot2docker ssh ifconfig eth1 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}'
 }
@@ -16,7 +18,7 @@ disco_server_container_id() {
 }
 
 start_disco_server() {
-	docker run --net=host -d -p=$disco_server_port:$disco_server_port $disco_server_image
+	docker run --net=host -p=$disco_server_port:$disco_server_port $disco_server_image > ./logs/discovery-server &
 }
 
 stop_disco_server() {
