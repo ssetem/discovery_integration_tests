@@ -1,0 +1,17 @@
+{
+  "name": "ot-discovery-demo",
+  "version": "0.0.0",
+  "description": "Discovery Client demo server",
+  "main": "demo.js",
+  "scripts": {
+    "test": "grunt"
+  },
+  "author": "Sam Salisbury",
+  "dependencies": {
+    "node-uuid": "^1.4.2",
+    "ot-discovery": "0.3.0"
+  },
+  "devDependencies": {
+  },
+  "license": "MIT"
+}
